@@ -13,8 +13,11 @@ fn main() {
 
     println!("You guessed: {}", guess);
 
-    // Mutability check
+    // Try mutability
     mutability();
+
+    // Try println! macro
+    println_macro();
 }
 
 // Experiment with mutability
@@ -33,4 +36,14 @@ fn mutability() {
     bananas = 6;
     println!("appels: {}", appels);
     println!("bananas: {}", bananas);
+}
+
+// Experiment with println! macro
+fn println_macro() {
+    let x = 5;
+    let y = 10;
+
+    println!("x = {} and y = {}", x, y);
+    println!("x = {x} and y = {y}");
+    println!("x = {x} and y = {y} and the sum is {sum}", x = x, y = y, sum = x + y);
 }
