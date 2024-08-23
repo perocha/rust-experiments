@@ -9,8 +9,8 @@ fn main() {
     // Try println! macro
     println_macro();
 
-    // Try user input
-    get_userinput();
+    // Guess a number game
+    guess_a_number();
 }
 
 // Experiment with mutability
@@ -42,7 +42,7 @@ fn println_macro() {
 }
 
 // Experiment with user input
-fn get_userinput() {
+fn guess_a_number() {
     loop {
         // Generate a random number between 1 and 100
         let secret_number = rand::thread_rng().gen_range(1..=100);
@@ -55,7 +55,10 @@ fn get_userinput() {
             .read_line(&mut guess)
             .expect("Failed to read line");
 
-        let guess: u32 = guess.trim().parse().expect("Please type a number!");
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
 
         println!("You guessed: {}", guess);
 
