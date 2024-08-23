@@ -27,6 +27,20 @@ fn main() {
     println!("** println! macro **");
     println_macro();
 
+    // Lucky number function
+    println!("** Lucky number function **");
+    let lucky_number = my_lucky_number();
+    println!("My lucky number is: {}", lucky_number);
+
+    // Function with arguments
+    println!("** Function with arguments **");
+    another_function(5, 'c', "this is a test");
+
+    // Function with return value
+    println!("** Function with return value **");
+    let result = function_return_value(5);
+    println!("The result is: {}", result);
+
     // Guess a number game
     println!("** Guess a number **");
     guess_a_number();
@@ -162,4 +176,26 @@ fn guess_a_number() {
             }
         }
     }
+}
+
+// Function with arguments
+fn another_function(x: i32, unit_label: char, unit_type: &str) {
+    println!("The value of x is: {}", x);
+    println!("The unit label is: {}", unit_label);
+    println!("The unit type is: {}", unit_type);
+}
+
+// Function with return value
+fn function_return_value(x: i32) -> i32 {
+    let y = {
+        let x = 3;
+        x + 1
+    };
+
+    x + y
+}
+
+// The simplest function
+fn my_lucky_number() -> i32 {
+    23
 }
