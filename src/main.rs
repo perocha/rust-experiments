@@ -7,6 +7,14 @@ fn main() {
     println!("** Constants **");
     constant_example();
 
+    // Try variables types
+    println!("** Variables types **");
+    var_types();
+
+    // Try compound types
+    println!("** Compound types **");
+    var_compound_types();
+
     // Try mutability
     println!("** Mutability **");
     var_mutability();
@@ -31,6 +39,42 @@ fn constant_example() {
 
     const THREE_HOURS_IN_SECONDS: u32 = 60 * 60 * 3;
     println!("Three hours in seconds is: {}", THREE_HOURS_IN_SECONDS);
+}
+
+// Experiment with variables types
+fn var_types() {
+    let example: i32 = 5; // i32
+    println!("Example 1: {}", example);
+    let example: f64 = 5.0; // f64
+    println!("Example 2: {}", example);
+    let example: f32 = 23.123; // f32
+    println!("Example 3: {}", example);
+    let example: i32 = 5_000; // i32
+    println!("Example 4: {}", example);
+    let example: f64 = 0.000_005; // f64
+    println!("Example 5: {}", example);
+    let example: u8 = 5; // u8 ---> if you use u8 = 256 it will not compile
+    println!("Example 6: {}", example);
+    let example: bool = true; // bool
+    println!("Example 7: {}", example);
+    let example: char = 'z'; // char
+    println!("Example 8: {}", example);
+    let example: &str = "Hello, world!"; // string
+    println!("Example 9: {}", example);
+}
+
+// Experiment with compound types
+fn var_compound_types() {
+    let tup: (i32, f64, char) = (500, 123.23, 'z');
+    println!("The value of tup is: ({}, {}, {})", tup.0, tup.1, tup.2);
+
+    let (x, y, z) = tup;
+    println!("The value of x, y, z is: ({}, {}, {})", x, y, z);
+
+    let x = tup.0;
+    let y = tup.1;
+    let z = tup.2;
+    println!("The value of x, y, z is: ({}, {}, {})", x, y, z);
 }
 
 // Experiment with shadowing
