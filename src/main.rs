@@ -3,18 +3,56 @@ use rand::Rng;
 use std::cmp::Ordering;
 
 fn main() {
+    // Try constants
+    println!("** Constants **");
+    constant_example();
+
     // Try mutability
-    mutability();
+    println!("** Mutability **");
+    var_mutability();
+
+    // Try shadowing
+    println!("** Shadowing **");
+    var_shadowing();
 
     // Try println! macro
+    println!("** println! macro **");
     println_macro();
 
     // Guess a number game
+    println!("** Guess a number **");
     guess_a_number();
 }
 
+// Experiment with constants
+fn constant_example() {
+    const MAX_POINTS: u32 = 100000;
+    println!("The value of MAX_POINTS is: {}", MAX_POINTS);
+
+    const THREE_HOURS_IN_SECONDS: u32 = 60 * 60 * 3;
+    println!("Three hours in seconds is: {}", THREE_HOURS_IN_SECONDS);
+}
+
+// Experiment with shadowing
+fn var_shadowing() {
+    let x: i32 = 5;
+    let x: i32 = x + 1; // Shadowing using let
+
+    {
+        // Shadowing in inner scope
+        let x: i32 = x * 2;
+        println!("The value of x in inner scope is: {}", x);
+    }
+
+    println!("The value of x is: {}", x);
+
+    let spaces = "    ";
+    let spaces = spaces.len();
+    println!("The number of spaces is: {}", spaces);
+}
+
 // Experiment with mutability
-fn mutability() {
+fn var_mutability() {
     let mut x = 5; // mutable variable
     println!("The value of x is: {}", x);
     x = 6;
