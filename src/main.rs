@@ -45,6 +45,10 @@ fn main() {
     println!("** Control the flow **");
     let_it_flow(23);
 
+    // Heap memory test
+    println!("** Heap memory test **");
+    heap_memory_test();
+
     // Guess a number game
     println!("** Guess a number **");
     guess_a_number();
@@ -202,6 +206,21 @@ fn function_return_value(x: i32) -> i32 {
 // The simplest function
 fn my_lucky_number() -> i32 {
     23
+}
+
+// Heap memory test
+fn heap_memory_test() {
+    let x = 65315;
+    let y = x;
+    println!("x = {}, y = {}", x, y);
+
+    let s1 = String::from("hello");
+    let s2 = s1;
+    // println!("s1 = {}", s1);   ---> this will not compile, s1 was moved to s2
+    println!("s2 = {}", s2);
+
+    let s3 = s2.clone();
+    println!("s2 = {}, s3 = {}", s2, s3);
 }
 
 // Control the flow
