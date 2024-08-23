@@ -221,6 +221,15 @@ fn heap_memory_test() {
 
     let s3 = s2.clone();
     println!("s2 = {}, s3 = {}", s2, s3);
+
+    ownership_test(s3);
+    println!("s2 = {}", s2);
+    // println!("s3 = {}", s3);   ---> this will not compile, s3 was moved to ownership_test
+}
+
+// Ownership test
+fn ownership_test(input_string: String) {
+    println!("{}", input_string);
 }
 
 // Control the flow
