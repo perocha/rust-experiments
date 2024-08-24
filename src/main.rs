@@ -23,6 +23,10 @@ fn main() {
     println!("** Mutability **");
     var_mutability();
 
+    // Try a bit more of mutability
+    println!("** Mutability test **");
+    mutability_test();
+
     // Try shadowing
     println!("** Shadowing **");
     var_shadowing();
@@ -290,6 +294,22 @@ fn calculate_length(input_string: &String) -> usize {
 // Modify the content of a string using a mutable reference
 fn modify_string(input_string: &mut String) {
     input_string.push_str(" world!");
+}
+
+// Mutability test
+fn mutability_test() {
+    let mut s = String::from("hello");
+
+    // We can reference the same variable multiple times, except when we have a mutable reference
+    let r1 = &s; // no problem
+    let r2 = &s; // no problem
+    println!("{r1} and {r2}");
+
+    // Now we have a mutable reference, so we can't have any other reference to the same variable
+    let r3 = &mut s; // no problem
+    println!("{r3}");
+
+    // println!("r1 = {r1}"); ---> this will not compile, s is borrowed as mutable
 }
 
 // Control the flow
