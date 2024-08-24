@@ -19,6 +19,17 @@ fn main() {
     println!("** Interesting stuff with vars **");
     var_interesting();
 
+    // Try string slices
+    println!("** String slices **");
+    string_slice();
+
+    // Try first word function
+    println!("** First word function **");
+    let input_string = String::from("This is a big string that I want to test");
+    let first_word = first_word(&input_string);
+    println!("The string is: {}", input_string);
+    println!("The first word is: {}", first_word);
+
     // Try mutability
     println!("** Mutability **");
     var_mutability();
@@ -106,6 +117,34 @@ fn var_interesting() {
     println!("The value of infer_type_i64 is: {}", infer_type_i64);
     infer_type_i64 = 2_147_483_648i64; // notice the i64 suffix
     println!("The value of infer_type_i64 is: {}", infer_type_i64);
+}
+
+// Experimenting with string slices
+fn string_slice() {
+    let s = String::from("hello world");
+
+    // Slicing a string, by using a range [starting_index..ending_index]
+    let hello = &s[0..5];
+    let another_hello = &s[..5]; // same as above
+    let world = &s[6..11];
+    let hello_world = &s[..]; // same as &s[0..11]
+    println!("hello: {hello}");
+    println!("another_hello: {another_hello}");
+    println!("world: {world}");
+    println!("hello_world: {hello_world}");
+}
+
+// Return the first word of a string
+fn first_word(input_string: &str) -> &str {
+    let bytes = input_string.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &input_string[..i];
+        }
+    }
+
+    &input_string[..]
 }
 
 // Experiment with compound types
