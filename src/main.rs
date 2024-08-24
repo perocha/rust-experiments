@@ -15,6 +15,10 @@ fn main() {
     println!("** Compound types **");
     var_compound_types();
 
+    // Try interesting stuff with vars
+    println!("** Interesting stuff with vars **");
+    var_interesting();
+
     // Try mutability
     println!("** Mutability **");
     var_mutability();
@@ -83,6 +87,21 @@ fn var_types() {
     println!("Example 8: {}", example);
     let example: &str = "Hello, world!"; // string
     println!("Example 9: {}", example);
+}
+
+// Interesting stuff with vars
+fn var_interesting() {
+    // Infer type i32
+    let mut infer_type_i32 = 1;
+    println!("The value of infer_type_i32 is: {}", infer_type_i32);
+    infer_type_i32 = 2_147_483_647;
+    println!("The value of infer_type_i32 is: {}", infer_type_i32);
+
+    // Infer type i64
+    let mut infer_type_i64 = 1;
+    println!("The value of infer_type_i64 is: {}", infer_type_i64);
+    infer_type_i64 = 2_147_483_648i64; // notice the i64 suffix
+    println!("The value of infer_type_i64 is: {}", infer_type_i64);
 }
 
 // Experiment with compound types
