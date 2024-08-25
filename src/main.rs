@@ -139,7 +139,9 @@ fn patient_registry() {
     // Add patient to the registry
     registry.add_patient(patient);
 
-    // Print the first user
-    let first_user = &registry.users[0];
-    println!("The first user is {}", first_user.name);
+    // Print all users
+    registry.print_users();
+
+    // Print all patients
+    registry.print_patients();
 }
