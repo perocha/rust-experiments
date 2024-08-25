@@ -7,6 +7,11 @@ mod memory;
 mod flow;
 mod utils;
 
+mod registry;
+use registry::user::{User, UserProfile};
+use registry::patient::Patient;
+use registry::registry::Registry;
+
 fn main() {
     // Try constants
     println!("** Constants **");
@@ -80,6 +85,10 @@ fn main() {
     // Helper function
     println!("** Helper function **");
     utils::helper::helper_function();
+
+    // Registry
+    println!("** The registry **");
+    patient_registry();
 }
 
 // Experiment with println! macro
@@ -90,4 +99,47 @@ fn println_macro() {
     println!("x = {} and y = {}", x, y);
     println!("x = {x} and y = {y}");
     println!("x = {x} and y = {y} and the sum is {sum}", x = x, y = y, sum = x + y);
+}
+
+// Experiment with Patient registry
+fn patient_registry() {
+    // Create a new registry
+    let mut registry = Registry::new();
+
+    // Create new users
+    let guardian = User {
+        id: 1,
+        name: String::from("John Doe"),
+        profile: UserProfile::LegalGuardian,
+    };
+    let admin = User {
+        id: 2,
+        name: String::from("Peter Rock"),
+        profile: UserProfile::Admin,
+    };
+    let doctor = User {
+        id: 3,
+        name: String::from("Dr. Smith"),
+        profile: UserProfile::Doctor,
+    };
+
+    // Add users to the registry
+    registry.add_user(guardian);
+    registry.add_user(admin);
+    registry.add_user(doctor);
+
+    // Create a patient
+    let patient = Patient {
+        id: 1,
+        name: String::from("Jane Doe"),
+        age: 10,
+        guardian_id: 1,
+    };
+
+    // Add patient to the registry
+    registry.add_patient(patient);
+
+    // Print the first user
+    let first_user = &registry.users[0];
+    println!("The first user is {}", first_user.name);
 }
