@@ -71,3 +71,21 @@ pub fn first_word(input_string: &str) -> &str {
 
     &input_string[..]
 }
+
+// Experiment with shadowing
+pub fn var_shadowing() {
+    let x: i32 = 5;
+    let x: i32 = x + 1; // Shadowing using let
+
+    {
+        // Shadowing in inner scope
+        let x: i32 = x * 2;
+        println!("The value of x in inner scope is: {}", x);
+    }
+
+    println!("The value of x is: {}", x);
+
+    let spaces = "    ";
+    let spaces = spaces.len();
+    println!("The number of spaces is: {}", spaces);
+}
