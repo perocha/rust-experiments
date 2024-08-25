@@ -5,6 +5,7 @@ mod guess;
 mod mutability;
 mod memory;
 mod flow;
+mod utils;
 
 fn main() {
     // Try constants
@@ -75,6 +76,10 @@ fn main() {
     // Guess a number game
     println!("** Guess a number **");
     guess::guess_a_number();
+
+    // Helper function
+    println!("** Helper function **");
+    utils::helper::helper_function();
 }
 
 // Experiment with println! macro
